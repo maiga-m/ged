@@ -1,0 +1,26 @@
+{
+  "gedApp": {
+    "typeDocument": {
+      "home": {
+        "title": "TypeDocuments",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Type Document",
+        "createOrEditLabel": "Créer ou éditer un Type Document",
+        "notFound": "Aucun Type Document trouvé"
+      },
+      "created": "Un nouveau Type Document a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Type Document avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Type Document avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Type Document {{ id }} ?"
+      },
+      "detail": {
+        "title": "Type Document"
+      },
+      "id": "ID",
+      "code": "Code",
+      "libelle": "Libelle",
+      "dossiers": "Dossiers"
+    }
+  }
+}

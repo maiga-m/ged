@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <!--
+        Added the constraints for entity Dossier.
+    -->
+    <changeSet id="20231015000609-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="type_document_id"
+                                 baseTableName="dossier"
+                                 constraintName="fk_dossier__type_document_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="type_document"/>
+
+        <addForeignKeyConstraint baseColumnNames="boite_id"
+                                 baseTableName="dossier"
+                                 constraintName="fk_dossier__boite_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="boite"/>
+
+        <addForeignKeyConstraint baseColumnNames="process_id"
+                                 baseTableName="dossier"
+                                 constraintName="fk_dossier__process_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="process"/>
+
+        <addForeignKeyConstraint baseColumnNames="service_id"
+                                 baseTableName="dossier"
+                                 constraintName="fk_dossier__service_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="service"/>
+
+        <addForeignKeyConstraint baseColumnNames="sous_service_id"
+                                 baseTableName="dossier"
+                                 constraintName="fk_dossier__sous_service_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="sous_service"/>
+    </changeSet>
+</databaseChangeLog>

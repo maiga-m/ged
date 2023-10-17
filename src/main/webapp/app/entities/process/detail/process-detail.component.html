@@ -1,0 +1,36 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="process">
+      <h2 data-cy="processDetailsHeading"><span jhiTranslate="gedApp.process.detail.title">Process</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ process.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="gedApp.process.code">Code</span></dt>
+        <dd>
+          <span>{{ process.code }}</span>
+        </dd>
+        <dt><span jhiTranslate="gedApp.process.nom">Nom</span></dt>
+        <dd>
+          <span>{{ process.nom }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Retour</span>
+      </button>
+
+      <button type="button" [routerLink]="['/process', process.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Editer</span>
+      </button>
+    </div>
+  </div>
+</div>

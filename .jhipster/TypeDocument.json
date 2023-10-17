@@ -1,0 +1,35 @@
+{
+  "applications": "*",
+  "changelogDate": "20231015000606",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "type_document",
+  "fields": [
+    {
+      "fieldName": "code",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "10"
+    },
+    {
+      "fieldName": "libelle",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "30"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "TypeDocument",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "dossier",
+      "otherEntityRelationshipName": "typeDocument",
+      "relationshipName": "dossiers",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "no"
+}

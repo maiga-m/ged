@@ -1,0 +1,155 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-dossier-heading" data-cy="DossierCreateUpdateHeading" jhiTranslate="gedApp.dossier.home.createOrEditLabel">
+        Créer ou éditer un Dossier
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" *ngIf="editForm.controls.id.value !== null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="gedApp.dossier.code" for="field_code">Code</label>
+          <input type="text" class="form-control" name="code" id="field_code" data-cy="code" formControlName="code" />
+          <div *ngIf="editForm.get('code')!.invalid && (editForm.get('code')!.dirty || editForm.get('code')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('code')?.errors?.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 10 }"
+            >
+              Ce champ doit faire moins de 10 caractères.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="gedApp.dossier.motCle" for="field_motCle">Mot Cle</label>
+          <input type="text" class="form-control" name="motCle" id="field_motCle" data-cy="motCle" formControlName="motCle" />
+          <div *ngIf="editForm.get('motCle')!.invalid && (editForm.get('motCle')!.dirty || editForm.get('motCle')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('motCle')?.errors?.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 30 }"
+            >
+              Ce champ doit faire moins de 30 caractères.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="gedApp.dossier.dateProduction" for="field_dateProduction">Date Production</label>
+          <div class="input-group">
+            <input
+              id="field_dateProduction"
+              data-cy="dateProduction"
+              type="text"
+              class="form-control"
+              name="dateProduction"
+              ngbDatepicker
+              #dateProductionDp="ngbDatepicker"
+              formControlName="dateProduction"
+            />
+            <button type="button" class="btn btn-secondary" (click)="dateProductionDp.toggle()">
+              <fa-icon icon="calendar-alt"></fa-icon>
+            </button>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="gedApp.dossier.typeDocument" for="field_typeDocument">Type Document</label>
+          <select
+            class="form-control"
+            id="field_typeDocument"
+            data-cy="typeDocument"
+            name="typeDocument"
+            formControlName="typeDocument"
+            [compareWith]="compareTypeDocument"
+          >
+            <option [ngValue]="null"></option>
+            <option [ngValue]="typeDocumentOption" *ngFor="let typeDocumentOption of typeDocumentsSharedCollection">
+              {{ typeDocumentOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="gedApp.dossier.boite" for="field_boite">Boite</label>
+          <select class="form-control" id="field_boite" data-cy="boite" name="boite" formControlName="boite" [compareWith]="compareBoite">
+            <option [ngValue]="null"></option>
+            <option [ngValue]="boiteOption" *ngFor="let boiteOption of boitesSharedCollection">{{ boiteOption.id }}</option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="gedApp.dossier.process" for="field_process">Process</label>
+          <select
+            class="form-control"
+            id="field_process"
+            data-cy="process"
+            name="process"
+            formControlName="process"
+            [compareWith]="compareProcess"
+          >
+            <option [ngValue]="null"></option>
+            <option [ngValue]="processOption" *ngFor="let processOption of processesSharedCollection">{{ processOption.id }}</option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="gedApp.dossier.service" for="field_service">Service</label>
+          <select
+            class="form-control"
+            id="field_service"
+            data-cy="service"
+            name="service"
+            formControlName="service"
+            [compareWith]="compareService"
+          >
+            <option [ngValue]="null"></option>
+            <option [ngValue]="serviceOption" *ngFor="let serviceOption of servicesSharedCollection">{{ serviceOption.id }}</option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="gedApp.dossier.sousService" for="field_sousService">Sous Service</label>
+          <select
+            class="form-control"
+            id="field_sousService"
+            data-cy="sousService"
+            name="sousService"
+            formControlName="sousService"
+            [compareWith]="compareSousService"
+          >
+            <option [ngValue]="null"></option>
+            <option [ngValue]="sousServiceOption" *ngFor="let sousServiceOption of sousServicesSharedCollection">
+              {{ sousServiceOption.id }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Annuler</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Sauvegarder</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,41 @@
+{
+  "applications": "*",
+  "changelogDate": "20231015000613",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "rayon",
+  "fields": [
+    {
+      "fieldName": "code",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "10"
+    },
+    {
+      "fieldName": "nom",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "30"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Rayon",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "boite",
+      "otherEntityRelationshipName": "rayon",
+      "relationshipName": "boites",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "salle",
+      "otherEntityRelationshipName": "rayons",
+      "relationshipName": "salle",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

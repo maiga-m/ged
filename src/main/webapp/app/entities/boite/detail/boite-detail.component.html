@@ -1,0 +1,42 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="boite">
+      <h2 data-cy="boiteDetailsHeading"><span jhiTranslate="gedApp.boite.detail.title">Boite</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ boite.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="gedApp.boite.code">Code</span></dt>
+        <dd>
+          <span>{{ boite.code }}</span>
+        </dd>
+        <dt><span jhiTranslate="gedApp.boite.capacite">Capacite</span></dt>
+        <dd>
+          <span>{{ boite.capacite }}</span>
+        </dd>
+        <dt><span jhiTranslate="gedApp.boite.rayon">Rayon</span></dt>
+        <dd>
+          <div *ngIf="boite.rayon">
+            <a [routerLink]="['/rayon', boite.rayon.id, 'view']">{{ boite.rayon.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Retour</span>
+      </button>
+
+      <button type="button" [routerLink]="['/boite', boite.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Editer</span>
+      </button>
+    </div>
+  </div>
+</div>

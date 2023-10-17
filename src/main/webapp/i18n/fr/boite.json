@@ -1,0 +1,27 @@
+{
+  "gedApp": {
+    "boite": {
+      "home": {
+        "title": "Boites",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Boite",
+        "createOrEditLabel": "Créer ou éditer un Boite",
+        "notFound": "Aucun Boite trouvé"
+      },
+      "created": "Un nouveau Boite a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Boite avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Boite avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Boite {{ id }} ?"
+      },
+      "detail": {
+        "title": "Boite"
+      },
+      "id": "ID",
+      "code": "Code",
+      "capacite": "Capacite",
+      "dossiers": "Dossiers",
+      "rayon": "Rayon"
+    }
+  }
+}

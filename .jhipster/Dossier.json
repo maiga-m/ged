@@ -1,0 +1,63 @@
+{
+  "applications": "*",
+  "changelogDate": "20231015000609",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "dossier",
+  "fields": [
+    {
+      "fieldName": "code",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "10"
+    },
+    {
+      "fieldName": "motCle",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "30"
+    },
+    {
+      "fieldName": "dateProduction",
+      "fieldType": "LocalDate"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Dossier",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "typeDocument",
+      "otherEntityRelationshipName": "dossiers",
+      "relationshipName": "typeDocument",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "boite",
+      "otherEntityRelationshipName": "dossiers",
+      "relationshipName": "boite",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "process",
+      "otherEntityRelationshipName": "dossiers",
+      "relationshipName": "process",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "service",
+      "otherEntityRelationshipName": "dossiers",
+      "relationshipName": "service",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "sousService",
+      "otherEntityRelationshipName": "dossiers",
+      "relationshipName": "sousService",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

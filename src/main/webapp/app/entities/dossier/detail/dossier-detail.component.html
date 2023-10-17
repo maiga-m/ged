@@ -1,0 +1,70 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="dossier">
+      <h2 data-cy="dossierDetailsHeading"><span jhiTranslate="gedApp.dossier.detail.title">Dossier</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ dossier.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="gedApp.dossier.code">Code</span></dt>
+        <dd>
+          <span>{{ dossier.code }}</span>
+        </dd>
+        <dt><span jhiTranslate="gedApp.dossier.motCle">Mot Cle</span></dt>
+        <dd>
+          <span>{{ dossier.motCle }}</span>
+        </dd>
+        <dt><span jhiTranslate="gedApp.dossier.dateProduction">Date Production</span></dt>
+        <dd>
+          <span>{{ dossier.dateProduction | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="gedApp.dossier.typeDocument">Type Document</span></dt>
+        <dd>
+          <div *ngIf="dossier.typeDocument">
+            <a [routerLink]="['/type-document', dossier.typeDocument.id, 'view']">{{ dossier.typeDocument.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="gedApp.dossier.boite">Boite</span></dt>
+        <dd>
+          <div *ngIf="dossier.boite">
+            <a [routerLink]="['/boite', dossier.boite.id, 'view']">{{ dossier.boite.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="gedApp.dossier.process">Process</span></dt>
+        <dd>
+          <div *ngIf="dossier.process">
+            <a [routerLink]="['/process', dossier.process.id, 'view']">{{ dossier.process.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="gedApp.dossier.service">Service</span></dt>
+        <dd>
+          <div *ngIf="dossier.service">
+            <a [routerLink]="['/service', dossier.service.id, 'view']">{{ dossier.service.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="gedApp.dossier.sousService">Sous Service</span></dt>
+        <dd>
+          <div *ngIf="dossier.sousService">
+            <a [routerLink]="['/sous-service', dossier.sousService.id, 'view']">{{ dossier.sousService.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Retour</span>
+      </button>
+
+      <button type="button" [routerLink]="['/dossier', dossier.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Editer</span>
+      </button>
+    </div>
+  </div>
+</div>

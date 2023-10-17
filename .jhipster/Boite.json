@@ -1,0 +1,39 @@
+{
+  "applications": "*",
+  "changelogDate": "20231015000611",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "boite",
+  "fields": [
+    {
+      "fieldName": "code",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "10"
+    },
+    {
+      "fieldName": "capacite",
+      "fieldType": "Integer"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Boite",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "dossier",
+      "otherEntityRelationshipName": "boite",
+      "relationshipName": "dossiers",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "rayon",
+      "otherEntityRelationshipName": "boites",
+      "relationshipName": "rayon",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

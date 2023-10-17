@@ -1,0 +1,27 @@
+{
+  "gedApp": {
+    "boite": {
+      "home": {
+        "title": "Boites",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Boite",
+        "createOrEditLabel": "Create or edit a Boite",
+        "notFound": "No Boites found"
+      },
+      "created": "A new Boite is created with identifier {{ param }}",
+      "updated": "A Boite is updated with identifier {{ param }}",
+      "deleted": "A Boite is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Boite {{ id }}?"
+      },
+      "detail": {
+        "title": "Boite"
+      },
+      "id": "ID",
+      "code": "Code",
+      "capacite": "Capacite",
+      "dossiers": "Dossiers",
+      "rayon": "Rayon"
+    }
+  }
+}

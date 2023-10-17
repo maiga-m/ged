@@ -1,0 +1,53 @@
+entity 		TypeDocument {
+	code		String	maxlength(10),
+    libelle 	String	maxlength(30)
+}
+
+entity 		Service {
+	code	String	maxlength(10),
+    nom		String	maxlength(30)
+}
+
+entity  	SousService{
+	code	String	maxlength(10),
+    nom		String	maxlength(30)
+}
+
+entity 		Dossier {
+	code			String	maxlength(10),
+    motCle			String	maxlength(30),
+    dateProduction	LocalDate
+}
+
+entity  	Process {
+	code	String	maxlength(10),
+    nom		String	maxlength(30)
+}
+
+entity  	Boite {
+	code		String	maxlength(10),
+    capacite	Integer
+}
+
+entity  	Salle {
+	code		String	maxlength(10),
+    superficie	Integer
+}
+
+entity  	Rayon {
+	code	String	maxlength(10),
+    nom		String	maxlength(30)
+}
+
+relationship OneToMany{
+    TypeDocument{dossiers} 	to Dossier{typeDocument}
+    Salle{rayons}			to Rayon{salle}
+    Rayon{boites}			to Boite{rayon}
+    Boite{dossiers}			to Dossier{boite}
+    Process{dossiers}		to Dossier{process}
+    Service{sousServices} 	to SousService{service}
+    Service{dossiers}		to Dossier{service}
+    SousService{dossiers}	to Dossier{sousService}
+}
+
+paginate TypeDocument, Salle, Rayon, Boite, Process, SousService, Dossier, Service with pagination

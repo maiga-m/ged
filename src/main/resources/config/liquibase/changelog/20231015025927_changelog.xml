@@ -1,0 +1,153 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-latest.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <changeSet author="LENOVO (generated)" id="1697338832102-3">
+        <createTable tableName="boite">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="boitePK"/>
+            </column>
+            <column name="created_by" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_date" type="datetime(6)"/>
+            <column name="last_modified_by" type="VARCHAR(50)"/>
+            <column name="last_modified_date" type="datetime(6)"/>
+            <column name="capacite" type="INT"/>
+            <column name="code" type="VARCHAR(10)"/>
+            <column name="rayon_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="LENOVO (generated)" id="1697338832102-4">
+        <createTable tableName="dossier">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="dossierPK"/>
+            </column>
+            <column name="created_by" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_date" type="datetime(6)"/>
+            <column name="last_modified_by" type="VARCHAR(50)"/>
+            <column name="last_modified_date" type="datetime(6)"/>
+            <column name="code" type="VARCHAR(10)"/>
+            <column name="date_production" type="date"/>
+            <column name="mot_cle" type="VARCHAR(30)"/>
+            <column name="boite_id" type="BIGINT"/>
+            <column name="process_id" type="BIGINT"/>
+            <column name="service_id" type="BIGINT"/>
+            <column name="sous_service_id" type="BIGINT"/>
+            <column name="type_document_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="LENOVO (generated)" id="1697338832102-5">
+        <createTable tableName="process">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="processPK"/>
+            </column>
+            <column name="created_by" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_date" type="datetime(6)"/>
+            <column name="last_modified_by" type="VARCHAR(50)"/>
+            <column name="last_modified_date" type="datetime(6)"/>
+            <column name="code" type="VARCHAR(10)"/>
+            <column name="nom" type="VARCHAR(30)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="LENOVO (generated)" id="1697338832102-6">
+        <createTable tableName="rayon">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="rayonPK"/>
+            </column>
+            <column name="created_by" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_date" type="datetime(6)"/>
+            <column name="last_modified_by" type="VARCHAR(50)"/>
+            <column name="last_modified_date" type="datetime(6)"/>
+            <column name="code" type="VARCHAR(10)"/>
+            <column name="nom" type="VARCHAR(30)"/>
+            <column name="salle_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="LENOVO (generated)" id="1697338832102-7">
+        <createTable tableName="salle">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="sallePK"/>
+            </column>
+            <column name="created_by" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_date" type="datetime(6)"/>
+            <column name="last_modified_by" type="VARCHAR(50)"/>
+            <column name="last_modified_date" type="datetime(6)"/>
+            <column name="code" type="VARCHAR(10)"/>
+            <column name="superficie" type="INT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="LENOVO (generated)" id="1697338832102-8">
+        <createTable tableName="service">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="servicePK"/>
+            </column>
+            <column name="created_by" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_date" type="datetime(6)"/>
+            <column name="last_modified_by" type="VARCHAR(50)"/>
+            <column name="last_modified_date" type="datetime(6)"/>
+            <column name="code" type="VARCHAR(10)"/>
+            <column name="nom" type="VARCHAR(30)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="LENOVO (generated)" id="1697338832102-9">
+        <createTable tableName="sous_service">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="sous_servicePK"/>
+            </column>
+            <column name="created_by" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_date" type="datetime(6)"/>
+            <column name="last_modified_by" type="VARCHAR(50)"/>
+            <column name="last_modified_date" type="datetime(6)"/>
+            <column name="code" type="VARCHAR(10)"/>
+            <column name="nom" type="VARCHAR(30)"/>
+            <column name="service_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="LENOVO (generated)" id="1697338832102-10">
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="jhi_user_authority" constraintName="FK290okww5jujghp4el5i7mgwu0" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="jhi_user" validate="true"/>
+    </changeSet>
+    <changeSet author="LENOVO (generated)" id="1697338832102-11">
+        <addForeignKeyConstraint baseColumnNames="salle_id" baseTableName="rayon" constraintName="FK412fcerutcfdebq1s89h0vo21" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="salle" validate="true"/>
+    </changeSet>
+    <changeSet author="LENOVO (generated)" id="1697338832102-12">
+        <addForeignKeyConstraint baseColumnNames="authority_name" baseTableName="jhi_user_authority" constraintName="FK4psxl0jtx6nr7rhqbynr6itoc" deferrable="false" initiallyDeferred="false" referencedColumnNames="name" referencedTableName="jhi_authority" validate="true"/>
+    </changeSet>
+    <changeSet author="LENOVO (generated)" id="1697338832102-13">
+        <addForeignKeyConstraint baseColumnNames="service_id" baseTableName="dossier" constraintName="FK67igqrp0y0ubanx76fexh7616" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="service" validate="true"/>
+    </changeSet>
+    <changeSet author="LENOVO (generated)" id="1697338832102-14">
+        <addForeignKeyConstraint baseColumnNames="service_id" baseTableName="sous_service" constraintName="FK738j8c0b3mkro5rsbxemh6bsh" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="service" validate="true"/>
+    </changeSet>
+    <changeSet author="LENOVO (generated)" id="1697338832102-15">
+        <addForeignKeyConstraint baseColumnNames="type_document_id" baseTableName="dossier" constraintName="FKmpl60nglj4sgy125ehqe0wmuf" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="type_document" validate="true"/>
+    </changeSet>
+    <changeSet author="LENOVO (generated)" id="1697338832102-16">
+        <addForeignKeyConstraint baseColumnNames="sous_service_id" baseTableName="dossier" constraintName="FKmrv324o0552bxy1f0a7a08swn" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="sous_service" validate="true"/>
+    </changeSet>
+    <changeSet author="LENOVO (generated)" id="1697338832102-17">
+        <addForeignKeyConstraint baseColumnNames="rayon_id" baseTableName="boite" constraintName="FKns1xwf45cdnj0wey012cmpjnv" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="rayon" validate="true"/>
+    </changeSet>
+    <changeSet author="LENOVO (generated)" id="1697338832102-18">
+        <addForeignKeyConstraint baseColumnNames="boite_id" baseTableName="dossier" constraintName="FKo10rvn8b506v64paebwusomfi" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="boite" validate="true"/>
+    </changeSet>
+    <changeSet author="LENOVO (generated)" id="1697338832102-19">
+        <addForeignKeyConstraint baseColumnNames="process_id" baseTableName="dossier" constraintName="FKtpgtraat1i8yuw8lsses6chpy" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="process" validate="true"/>
+    </changeSet>
+    <changeSet author="LENOVO (generated)" id="1697338832102-1">
+        <dropUniqueConstraint constraintName="UC_JHI_USERLOGIN_COL" tableName="jhi_user"/>
+    </changeSet>
+    <changeSet author="LENOVO (generated)" id="1697338832102-2">
+        <addUniqueConstraint columnNames="login" constraintName="UC_JHI_USERLOGIN_COL" tableName="jhi_user"/>
+    </changeSet>
+</databaseChangeLog>

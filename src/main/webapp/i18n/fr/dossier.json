@@ -1,0 +1,31 @@
+{
+  "gedApp": {
+    "dossier": {
+      "home": {
+        "title": "Dossiers",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Dossier",
+        "createOrEditLabel": "Créer ou éditer un Dossier",
+        "notFound": "Aucun Dossier trouvé"
+      },
+      "created": "Un nouveau Dossier a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Dossier avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Dossier avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Dossier {{ id }} ?"
+      },
+      "detail": {
+        "title": "Dossier"
+      },
+      "id": "ID",
+      "code": "Code",
+      "motCle": "Mot Cle",
+      "dateProduction": "Date Production",
+      "typeDocument": "Type Document",
+      "boite": "Boite",
+      "process": "Process",
+      "service": "Service",
+      "sousService": "Sous Service"
+    }
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "applications": "*",
+  "changelogDate": "20231015000612",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "salle",
+  "fields": [
+    {
+      "fieldName": "code",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "10"
+    },
+    {
+      "fieldName": "superficie",
+      "fieldType": "Integer"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Salle",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "rayon",
+      "otherEntityRelationshipName": "salle",
+      "relationshipName": "rayons",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "no"
+}
